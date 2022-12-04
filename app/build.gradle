@@ -7,6 +7,10 @@ android {
     namespace 'my.edu.tarc.bmi'
     compileSdk 32
 
+    buildFeatures{
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "my.edu.tarc.bmi"
         minSdk 22

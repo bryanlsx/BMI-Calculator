@@ -2,6 +2,8 @@ package my.edu.tarc.bmi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import my.edu.tarc.bmi.databinding.ActivityMainBinding
+import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
 //    Module Level Variable = can be accessed by all module
@@ -11,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 //    recommend to use this view binder so no need to do multiple times
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        Inflate = display the IU
         binding = ActivityMainBinding.inflate(layoutInflater)
 //        root = top of a tree structure -> layout
         setContentView(binding.root) //load activity layout file to the memory
@@ -38,26 +41,19 @@ class MainActivity : AppCompatActivity() {
             if(bmi < 18.5){
                 //Underweight
                 //BMI: 18.20 (underweight)
-                binding.textViewBMI.text = String.format("%s:%.2f (%s)", getString(R.string.app_name)
-                                                        , bmi, getString(R.string.underweight))
+                binding.textViewBMI.text = String.format("%s:%.2f (%s)", getString(R.string.app_name), bmi, getString(R.string.underweight))
 
-                binding.imageViewBMI.setImageResources(R.drawable.under)
+                binding.imageViewBMI.setImageResource(R.drawable.under)
             }else if(bmi > 25) {
                 //Overweight
-                binding.textViewBMI.text = String.format(
-                    "%s:%.2f (%s)",
-                    getString(R.string.app_name),
-                    bmi,
-                    getString(R.string.overweight)
-                )
+                binding.textViewBMI.text = String.format("%s:%.2f (%s)", getString(R.string.app_name), bmi, getString(R.string.overweight))
 
-                binding.imageViewBMI.setImageResources(R.drawable.under)
+                binding.imageViewBMI.setImageResource(R.drawable.over)
             }else {
                 //Normal
-                binding.textViewBMI.text = String.format("%s:%.2f (%s)", getString(R.string.app_name)
-                    , bmi, getString(R.string.underweight))
+                binding.textViewBMI.text = String.format("%s:%.2f (%s)", getString(R.string.app_name), bmi, getString(R.string.normal))
 
-                binding.imageViewBMI.setImageResources(R.drawable.normal)
+                binding.imageViewBMI.setImageResource(R.drawable.normal)
             }
 
 
